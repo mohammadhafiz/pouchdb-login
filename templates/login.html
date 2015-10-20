@@ -12,19 +12,19 @@
             </div>
         </md-toolbar>
         <md-card-content>
-            <form name="loginForm"
-                ng-submit="login(credentials)">
+            <form name="userForm"
+                ng-submit="user()">
                 <md-input-container>
                     <label>{{ 'label_username' | translate }}</label>
                     <input autofocus
                         name="username"
-                        ng-model="credentials.username"
+                        ng-model="username"
                         required
                         minlength="4"
                         maxlength="24"
                         type="text">
-                    <div ng-if="loginForm.$submitted || loginForm.username.$touched"
-                        ng-messages="loginForm.username.$error">
+                    <div ng-if="userForm.$submitted || userForm.username.$touched"
+                        ng-messages="userForm.username.$error">
                         <div ng-message="required">{{ 'validation_required' | translate }}</div>
                         <div ng-message="minlength">{{ 'validation_minlength_4' | translate }}</div>
                         <div ng-Message="maxlength">{{ 'validation_maxlength_24' | translate }}</div>
@@ -34,13 +34,13 @@
                 <md-input-container>
                     <label>{{ 'label_password' | translate }}</label>
                     <input name="password"
-                        ng-model="credentials.password"
+                        ng-model="password"
                         required
                         minlength="4"
                         maxlength="24"
                         type="password">
-                    <div ng-if="loginForm.$submitted || loginForm.password.$touched"
-                        ng-messages="loginForm.password.$error">
+                    <div ng-if="userForm.$submitted || userForm.password.$touched"
+                        ng-messages="userForm.password.$error">
                         <div ng-message="required">{{ 'validation_required' | translate }}</div>
                         <div ng-message="minlength">{{ 'validation_minlength_4' | translate }}</div>
                         <div ng-Message="maxlength">{{ 'validation_maxlength_24' | translate }}</div>
@@ -48,7 +48,7 @@
                 </md-input-container>
 
                 <div layout="row" layout-align="end center">
-                    <md-button class="md-primary" ng-href="{{register}}" target="_blank">Sign Up</md-button>
+                    <md-button class="md-primary" ng-click="register()" target="_blank">Sign Up</md-button>
                     <md-button class="md-accent">
                         {{ 'action_login' | translate }}
                     </md-button>
